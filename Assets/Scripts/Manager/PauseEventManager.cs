@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseEventManager : MonoBehaviour
 {
+    [SerializeField] private GameObject PausePanel;
     [SerializeField] private GameObject HelpPanel;
     public void Restart()
     {
@@ -16,7 +17,13 @@ public class PauseEventManager : MonoBehaviour
     }
     public void Help()
     {
+        PausePanel.SetActive(false);
         HelpPanel.SetActive(true);
+    }
+    public void Back()
+    {
+        HelpPanel.SetActive(false);
+        PausePanel.SetActive(true);
     }
     public void Exit()
     {
